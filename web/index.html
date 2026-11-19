@@ -1,0 +1,230 @@
+<title>器械法规问答</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@400;600&display=swap">
+<style>
+/* 布局：顶部检索条为主角；下方「回答 + 原文条款」左右分栏，窄屏上下排；法规原文用宋体，系统文字用黑体 */
+:root{
+  --bg:#f5f6f9; --panel:#ffffff; --ink:#171c28; --muted:#5d6577; --line:#dfe3ec; --soft:#eef1f7;
+  --accent:#2b4c8c; --accent-soft:#e3e9f6; --accent-ink:#ffffff; --seal:#b0322a; --seal-soft:#f7e3e1;
+  --add:#e3f1e5; --add-ink:#22663a; --del:#f8e2e0; --del-ink:#9c2a22; --warn:#8a5a00; --warn-soft:#f6ecd6;
+  --sans:"Noto Sans SC","PingFang SC","Microsoft YaHei",system-ui,sans-serif; --serif:"Noto Serif SC","Songti SC",STSong,serif; --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace; --r:10px;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#10131a; --panel:#171b24; --ink:#e3e7f0; --muted:#9aa3b5; --line:#2a3040; --soft:#1e2330;
+  --accent:#8aa8e6; --accent-soft:#1f2a42; --accent-ink:#0f1420; --seal:#ef8a80; --seal-soft:#3a1f1d;
+  --add:#173022; --add-ink:#8fd3a0; --del:#3a1d1b; --del-ink:#f2a39b; --warn:#e5b45a; --warn-soft:#33280f; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#10131a; --panel:#171b24; --ink:#e3e7f0; --muted:#9aa3b5; --line:#2a3040; --soft:#1e2330;
+  --accent:#8aa8e6; --accent-soft:#1f2a42; --accent-ink:#0f1420; --seal:#ef8a80; --seal-soft:#3a1f1d;
+  --add:#173022; --add-ink:#8fd3a0; --del:#3a1d1b; --del-ink:#f2a39b; --warn:#e5b45a; --warn-soft:#33280f; color-scheme:dark}
+*{box-sizing:border-box} [hidden]{display:none!important}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:14px;line-height:1.65}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--panel)}
+.wrap{max-width:1160px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+header{background:var(--panel);border-bottom:1px solid var(--line);position:sticky;top:env(safe-area-inset-top,0px);z-index:5}
+.brand{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px;padding-block:14px 4px}
+.brand h1{margin:0;font-size:20px}
+.seal{font-size:11.5px;color:var(--seal);border:1px solid var(--seal);padding:0 7px;border-radius:4px;letter-spacing:.05em}
+.brand .sub{color:var(--muted);font-size:13px}
+nav{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none}
+nav a{white-space:nowrap;text-decoration:none;color:var(--muted);padding:8px 12px;border-bottom:2px solid transparent;font-weight:500}
+nav a[aria-current="page"]{color:var(--ink);border-color:var(--accent)}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+main{padding-block:20px 56px}
+section.view{display:grid;gap:16px} section.view>*,.cols>*{min-width:0}
+h2{margin:0;font-size:17px;text-wrap:balance} h3{margin:0;font-size:15px}
+.lede{margin:0;color:var(--muted);max-width:72ch}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:16px}
+.ask{display:flex;gap:8px;flex-wrap:wrap}
+.ask input{flex:1 1 280px;min-width:0;font:inherit;font-size:16px;padding:11px 14px;border:1px solid var(--line);border-radius:9px;background:var(--panel);color:var(--ink)}
+.btn{font:inherit;padding:10px 16px;border-radius:9px;border:1px solid var(--accent);background:var(--accent);color:var(--accent-ink);cursor:pointer;font-weight:500}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.chip{font:inherit;font-size:12.5px;padding:4px 10px;border-radius:99px;border:1px solid var(--line);background:var(--soft);color:var(--ink);cursor:pointer}
+.chip small{color:var(--muted)}
+.cols{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px;align-items:start}
+@media (max-width:860px){.cols{grid-template-columns:1fr}}
+.ans{font-size:15px}
+.cite{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:8px 0 0}
+.pill{display:inline-block;font-size:11.5px;padding:1px 8px;border-radius:99px;background:var(--soft);white-space:nowrap}
+.pill.cur{background:var(--accent-soft);color:var(--accent)} .pill.old{background:var(--seal-soft);color:var(--seal)} .pill.chg{background:var(--warn-soft);color:var(--warn)}
+.refuse{border-left:3px solid var(--seal);padding-left:12px}
+.art{font-family:var(--serif);font-size:14.5px;line-height:1.9;white-space:pre-wrap}
+.art b{font-family:var(--sans)}
+.note{color:var(--muted);font-size:12.5px}
+.trace{font-family:var(--mono);font-size:12px;color:var(--muted);display:grid;gap:2px}
+.diff{font-family:var(--serif);line-height:1.9;font-size:14px}
+.diff ins{background:var(--add);color:var(--add-ink);text-decoration:none}
+.diff del{background:var(--del);color:var(--del-ink)}
+.kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+@media (max-width:860px){.kpis{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.kpi .n{font-family:var(--mono);font-size:26px;line-height:1.1}
+.kpi .l{color:var(--muted);font-size:12.5px}
+.filters{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.filters select,.filters input{font:inherit;font-size:13px;padding:6px 8px;border:1px solid var(--line);border-radius:7px;background:var(--panel);color:var(--ink);max-width:100%}
+.cmp{display:grid;gap:10px}
+.cmprow{border:1px solid var(--line);border-radius:var(--r);background:var(--panel);padding:12px 14px;display:grid;gap:6px}
+.cmprow .h{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.scroll{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:13px}
+th,td{border-bottom:1px solid var(--line);padding:7px 8px;text-align:left;vertical-align:top}
+th{color:var(--muted);font-weight:500;font-size:12px;white-space:nowrap}
+td.n{font-family:var(--mono);text-align:right;font-variant-numeric:tabular-nums}
+tr.full td{font-weight:600}
+ul.clean{margin:6px 0 0;padding-left:18px} ul.clean li{margin:4px 0}
+code{font-family:var(--mono);font-size:12px;background:var(--soft);padding:1px 5px;border-radius:4px}
+.ok{color:var(--add-ink)} .bad{color:var(--del-ink)}
+footer{color:var(--muted);font-size:12px;border-top:1px solid var(--line);padding-block:20px}
+</style>
+
+<header><div class="wrap">
+  <div class="brand"><h1>器械法规问答</h1><span class="seal">法规原文 · 中国政府网</span><span class="sub">版本感知 · 条款引用 · 新旧对照 · 资料里没有就不答</span></div>
+  <nav aria-label="页面"><a href="#ask">问答</a><a href="#compare">新旧对照</a><a href="#eval">评测</a><a href="#about">数据与方法</a></nav>
+</div></header>
+
+<main class="wrap">
+<section class="view" id="v-ask">
+  <div class="panel">
+    <form class="ask" id="f"><input id="q" aria-label="输入问题" placeholder="例如：第三类医疗器械经营许可多久作出决定？" autocomplete="off"><button class="btn" type="submit">查询</button></form>
+    <div class="chips" id="chips"></div>
+  </div>
+  <div class="cols">
+    <div class="panel" id="answer"><p class="note">正在载入法规条款…</p></div>
+    <div class="panel" id="source"><p class="note">引用的法规原文会显示在这里。</p></div>
+  </div>
+</section>
+
+<section class="view" id="v-compare" hidden>
+  <div><h2>《医疗器械监督管理条例》2017 修订版 → 2021 修订版</h2><p class="lede" id="cmp-lede"></p></div>
+  <div class="kpis" id="cmp-kpis"></div>
+  <div class="panel filters"><select id="c-kind" aria-label="变化类型"><option value="">全部变化类型</option><option>新增</option><option>有修改</option><option>基本未变</option><option>删除或并入</option></select>
+    <select id="c-chap" aria-label="章"></select><input id="c-q" type="search" placeholder="在条文里搜索，如 注册人、罚款、临床" aria-label="搜索条文"><span class="note" id="c-count"></span></div>
+  <div class="cmp" id="cmp"></div>
+</section>
+
+<section class="view" id="v-eval" hidden>
+  <div><h2>评测：每一步改进带来了什么</h2><p class="lede">三套题：开发集（调参用）、留出集（调完参才写）、第二留出集（看到留出集的问题、改进之后才写的新题）。分开报告，避免「在自己出的题上考满分」。</p></div>
+  <div class="panel scroll"><table id="t-eval"></table></div>
+  <div class="panel"><h3>留出集暴露的问题与改进</h3>
+    <ul class="clean">
+      <li><b>用户不说法规用语</b>：留出集里「外包」「UDI」「没拿到许可证」「停产」都检索不到，因为条文写的是「委托生产」「唯一标识」「未取得」「暂停生产」。加了口语→法规用语的改写表后，第一留出集从 67% 到 92%；为了确认不是只修好了这几道题，又写了第二留出集，结果 82%。</li>
+      <li><b>版本陷阱</b>：不分版本检索时，开发集 10 道陷阱题里有 3 道答成了 2017 版的旧规定（如经营许可审查时限 30 个工作日，现行是 20 个）。加版本过滤后为 0。</li>
+      <li><b>资料里没有的</b>：洁净室标准、税率、医保这类问题，资料库里没有对应条款。不设门槛时系统会硬找一条「最像的」条款作答；加可答性门槛后全部正确拒答。</li>
+      <li><b>仍然答错的</b>：见下表，如实保留。</li>
+    </ul>
+  </div>
+  <div class="panel scroll"><h3>完整版仍答错的题</h3><table id="t-miss"></table></div>
+</section>
+
+<section class="view" id="v-about" hidden>
+  <div class="panel"><h3>资料库</h3><div class="scroll"><table id="t-docs"></table></div>
+  <p class="note">原文由浏览器从中国政府网页面抓取，按「章—条」切分，条号连续性逐一校验（80 / 107 / 80 条，无缺号）。</p></div>
+  <div class="panel"><h3>回答流程</h3>
+    <ul class="clean">
+      <li><b>条号直达</b>：问题里写了「第 X 条」，直接取该条；写了「2017 / 旧版」则取旧版。条号不存在就说不存在。</li>
+      <li><b>版本过滤</b>：默认只查现行有效的文件；只有问题里出现「旧版、2017、修订前、原来、以前」等词才查已废止版本。</li>
+      <li><b>口语改写</b>：外包→委托生产、UDI→唯一标识、无证→未取得许可证等，提高召回。</li>
+      <li><b>检索</b>：字符二元组 BM25。法规问答里数字、时限、机构名要求精确匹配，字面检索比语义检索更稳；完整版可以再接 bge-m3 向量检索做混合召回。</li>
+      <li><b>可答性门槛</b>：问题关键字在最佳条款里的覆盖率低于 55%、或得分过低，就拒答。</li>
+      <li><b>回答</b>：从条款里挑最相关的一两句，附文件、版本、条号；该条在 2021 修订中有变化的，同时展示旧版原文，方便合规人员判断影响。</li>
+    </ul>
+    <p class="note">本页的问答在你的浏览器里实时运行，不调用任何大模型，因此回答都是法规原文，不会编造。接大模型做总结时，同一套检索结果作为上下文，并要求逐句引用。</p>
+  </div>
+</section>
+</main>
+<footer><div class="wrap">法规原文来源：中国政府网（www.gov.cn）。本页为个人作品，仅作技术演示，不构成法律意见；实际适用以官方发布文本为准。作者：李江鑫 · 代码：github.com/li-iris/med-device-reg-qa</div></footer>
+
+<script>
+const $=s=>document.querySelector(s), esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+let A=[],AL=null,BY={},E=null,N2O={},O2N={};
+/* ===== 问答引擎：与 regqa/qa.py 同一算法 ===== */
+const HISTORY=/旧版|老版|2017|二〇一七|修订前|修改前|原来|以前|过去|曾经|原条例|上一版/;
+const STOP=new Set("的了和与及或在是对于为以由向按其之等中上下个各有无请问一下什么哪些怎么如何多少几时候规定要求条例办法医疗器械应当");
+const CNUM="零一二三四五六七八九";
+const SYN=[[/外包|代工|找.{0,4}工厂生产|OEM/i,"委托生产 受托生产企业"],[/UDI|追溯码/i,"唯一标识 可追溯"],[/无证|没拿到|没有.{0,3}(许可证|注册证)|未经许可/i,"未取得 许可证 注册证"],[/停产|停止生产/i,"暂停生产"],[/多久|多长时间|几天|多少天/i,"日内 工作日"],[/外包装|标签上/i,"标签"],[/上市后监测|售后安全/i,"不良事件监测"]];
+const DEFN=/什么是|是指|定义|含义|怎么界定/;
+const norm=t=>t.replace(/\s/g,"");
+const bigrams=t=>{t=[...norm(t)];const o=[];for(let i=0;i<t.length-1;i++)o.push(t[i]+t[i+1]);return o};
+const rewrite=q=>{const ex=SYN.filter(([p])=>p.test(q)).map(x=>x[1]);return q+(ex.length?" "+ex.join(" "):"")};
+function contentChars(q){q=norm(q).replace(/第[一二三四五六七八九十百零\d]+条/g,"").replace(new RegExp(HISTORY.source,"g"),"");return new Set([...q].filter(c=>!STOP.has(c)&&!/[，。？！、：；（）()?]/.test(c)))}
+function cn2int(s){if(/^\d+$/.test(s))return +s;let n=0,cur=0;for(const ch of s){const k=CNUM.indexOf(ch);if(k>=0)cur=k;else if(ch==="十"){n+=(cur||1)*10;cur=0}else if(ch==="百"){n+=(cur||1)*100;cur=0}}return n+cur}
+let TF={},LEN={},AVG=0,IDF={};
+function buildIndex(){const df=new Map();for(const a of A){const c=new Map();for(const g of bigrams(a.text))c.set(g,(c.get(g)||0)+1);TF[a.id]=c;LEN[a.id]=[...c.values()].reduce((x,y)=>x+y,0);for(const g of c.keys())df.set(g,(df.get(g)||0)+1)}
+  AVG=Object.values(LEN).reduce((x,y)=>x+y,0)/A.length;for(const [g,n] of df)IDF[g]=Math.log(1+(A.length-n+.5)/(n+.5))}
+function bm25(q,ids){const qg=new Map();for(const g of bigrams(q))qg.set(g,(qg.get(g)||0)+1);const k1=1.4,b=.6;
+  return ids.map(i=>{const tf=TF[i],L=LEN[i];let s=0;for(const g of qg.keys()){const f=tf.get(g);if(f)s+=(IDF[g]||0)*f*(k1+1)/(f+k1*(1-b+b*L/AVG))}return [s,i]}).sort((x,y)=>y[0]-x[0]||(y[1]>x[1]?1:-1))}
+function pool(q){const hist=HISTORY.test(q);return [A.filter(a=>hist?a.key!=="reg2021":a.status==="现行有效").map(a=>a.id),hist]}
+function lookup(q,hist){const m=q.match(/第([一二三四五六七八九十百零\d]+)条/);if(!m)return null;const no=cn2int(m[1]);const key=/办法|不良事件/.test(q)?"ae2018":(hist?"reg2017":"reg2021");return BY[`${key}-${String(no).padStart(3,"0")}`]||"NOT_FOUND"}
+function bestSentences(q,text,n=2){const cs=contentChars(q),qb=new Set(bigrams(q));const ss=norm(text).split(/(?<=[。；])/).filter(Boolean);
+  const sc=ss.map((s,i)=>{const set=new Set(s);let a=0;for(const c of cs)if(set.has(c))a++;const sb=new Set(bigrams(s));let b2=0;for(const g of qb)if(sb.has(g))b2++;return [a+.5*b2,i,s]});
+  sc.sort((x,y)=>y[0]-x[0]||y[1]-x[1]);return sc.slice(0,n).sort((x,y)=>x[1]-y[1]).map(x=>x[2]).join("")}
+function changeNote(a){if(a.key==="reg2021"){const r=N2O[a.id];if(r&&r.kind==="新增")return{kind:"2021 修订新增"};if(r&&r.kind==="有修改")return{kind:"2021 修订有修改",old:BY[r.old],row:r}}
+  if(a.key==="reg2017"){const r=O2N[a.id];if(!r||r.kind==="删除或并入")return{kind:"2021 修订已删除"};return{kind:"已被 2021 修订版取代",nw:BY[r.new],row:r}}return null}
+function ask(q0){const trace=[];const q=rewrite(q0);if(q!==q0)trace.push("口语改写：+ "+q.slice(q0.length+1));
+  const [ids,hist]=pool(q);trace.push(hist?"版本：问的是旧版 → 只查已废止的 2017 版条例 + 现行办法":"版本：默认只查现行有效文件（"+ids.length+" 条）");
+  const hit=lookup(q,hist);if(hit==="NOT_FOUND")return{status:"NOT_FOUND",reason:"该条号在资料库里不存在。",trace};
+  if(hit){trace.push("路由：条号直达 "+hit.id);return{status:"OK",answer:norm(hit.text).slice(0,400),cites:[hit.id],top:[hit.id],change:changeNote(hit),trace}}
+  let ranked=bm25(q,ids);if(DEFN.test(q0))ranked=ranked.map(([s,i])=>[s*(BY[i].text.slice(0,20).includes("含义")?1.6:1),i]).sort((x,y)=>y[0]-x[0]);
+  ranked=ranked.slice(0,5);if(!ranked.length||ranked[0][0]<=0)return{status:"NOT_FOUND",reason:"没有检索到相关条款。",trace};
+  const [s,top]=ranked[0],a=BY[top],cs=contentChars(q);let hitc=0;const set=new Set(norm(a.text));for(const c of cs)if(set.has(c))hitc++;const cov=hitc/Math.max(1,cs.size);
+  trace.push(`检索：最佳 ${top}，得分 ${s.toFixed(1)}，关键字覆盖 ${(cov*100).toFixed(0)}%`);
+  if(cov<.55||s<6)return{status:"NOT_FOUND",reason:`资料库里没有足够依据（关键字覆盖 ${(cov*100).toFixed(0)}%，门槛 55%）。`,top:ranked.map(x=>x[1]),trace};
+  return{status:"OK",answer:bestSentences(q,a.text),cites:[top],top:ranked.map(x=>x[1]),change:changeNote(a),trace}}
+window.__ask=ask;
+/* ===== 视图 ===== */
+const badge=a=>`<span class="pill ${a.status==="现行有效"?"cur":"old"}">${a.status}</span>`;
+const citeLine=a=>`《${a.doc}》${a.version} ${a.label}`;
+function hl(text,ans){const t=norm(text);const i=t.indexOf(ans.slice(0,24));if(i<0||!ans)return esc(t);const parts=[];let rest=t;for(const s of ans.split(/(?<=[。；])/).filter(Boolean)){const j=rest.indexOf(s);if(j<0)continue;parts.push(esc(rest.slice(0,j)),"<b>"+esc(s)+"</b>");rest=rest.slice(j+s.length)}parts.push(esc(rest));return parts.join("")}
+function diffHtml(ops){return ops.map(([t,o,n])=>t==="equal"?esc(o):(o?`<del>${esc(o)}</del>`:"")+(n?`<ins>${esc(n)}</ins>`:"")).join("")}
+function show(q){
+  if(!q.trim())return;$("#q").value=q;const r=ask(q);
+  const tr=`<div class="trace" style="margin-top:12px">${r.trace.map(esc).map(x=>"› "+x).join("<br>")}</div>`;
+  if(r.status!=="OK"){$("#answer").innerHTML=`<div class="refuse"><h3>资料库里没有可以回答这个问题的条款</h3><p>${esc(r.reason)}</p><p class="note">本页只收录《医疗器械监督管理条例》2017 / 2021 修订版和《医疗器械不良事件监测和再评价管理办法》。为了不编造，系统宁可不答。</p></div>${tr}`;
+    $("#source").innerHTML=r.top?`<h3>最接近的条款（未达门槛，仅供参考）</h3>`+r.top.slice(0,3).map(i=>`<p class="note">${esc(citeLine(BY[i]))}：${esc(norm(BY[i].text).slice(0,70))}…</p>`).join(""):'<p class="note">无。</p>';return}
+  const a=BY[r.cites[0]],c=r.change;
+  let chg="";if(c){chg=`<p><span class="pill chg">${c.kind}</span></p>`;
+    if(c.old)chg+=`<p class="note">2017 修订版对应 ${esc(c.old.label)}，改动见右侧对照。</p>`;
+    if(c.nw)chg+=`<p class="note">现行规定见 2021 修订版 ${esc(c.nw.label)}：${esc(norm(c.nw.text).slice(0,90))}…</p>`;
+    if(c.kind==="2021 修订已删除")chg+=`<p class="note">这一条在 2021 修订版中已删除或并入其他条款，现行条例没有对应规定。</p>`}
+  $("#answer").innerHTML=`<p class="ans">${esc(r.answer)}</p><div class="cite"><span>出处：${esc(citeLine(a))}</span>${badge(a)}</div>${chg}${tr}`;
+  let src=`<h3>${esc(a.doc)}（${esc(a.version)}）${esc(a.label)}</h3><p class="note">${esc(a.chapter)} · ${esc(a.order)} · ${a.effective} 起施行${a.repealed?" · "+a.repealed+" 废止":""}</p><div class="art">${hl(a.text,r.answer)}</div>`;
+  if(c&&c.row&&c.row.diff)src+=`<h3 style="margin-top:16px">与 ${c.old?"2017 修订版 "+esc(c.old.label):"2021 修订版 "+esc(c.nw.label)} 的逐字对照</h3><p class="note"><span class="pill" style="background:var(--del)">删除</span> <span class="pill" style="background:var(--add)">新增</span></p><div class="diff">${diffHtml(c.row.diff)}</div>`;
+  $("#source").innerHTML=src;
+}
+const EXAMPLES=[["第三类医疗器械经营许可多久作出决定？","现行 · 版本陷阱"],["2017年版条例里，第三类经营许可的审查时限是多少？","旧版"],["找代工厂生产，出了质量问题谁担责？","口语"],["可疑不良事件导致死亡的，持有人应当在多少日内报告？","不良事件办法"],["条例第三十八条","条号直达"],["没有注册证就卖二类器械，罚款怎么算？","罚则"],["洁净室的悬浮粒子标准是多少？","资料库外"]];
+function compareView(){
+  const rows=AL.rows,s=AL.summary;
+  $("#cmp-lede").textContent=`条号整体重排（80 条 → 107 条），不能按条号对照。系统用字符级相似度自动配对新旧条款，再逐字比对差异。`;
+  $("#cmp-kpis").innerHTML=[["新增",s["新增"]],["有修改",s["有修改"]],["基本未变",s["基本未变"]],["删除或并入",s["删除或并入"]]].map(([l,n])=>`<div class="panel kpi"><div class="n">${n}</div><div class="l">${l}</div></div>`).join("");
+  const chaps=[...new Set(A.filter(a=>a.key==="reg2021").map(a=>a.chapter))];$("#c-chap").innerHTML=`<option value="">全部章节（2021 版）</option>`+chaps.map(c=>`<option>${esc(c)}</option>`).join("");
+  const render=()=>{const k=$("#c-kind").value,ch=$("#c-chap").value,q=$("#c-q").value.trim();
+    const xs=rows.filter(r=>(!k||r.kind===k)&&(!ch||(r.new&&BY[r.new].chapter===ch))&&(!q||((r.new?BY[r.new].text:"")+(r.old?BY[r.old].text:"")).includes(q)));
+    $("#c-count").textContent=xs.length+" 条";
+    $("#cmp").innerHTML=xs.map(r=>{const n=r.new&&BY[r.new],o=r.old&&BY[r.old];
+      const head=`<div class="h"><span class="pill ${r.kind==="新增"?"cur":r.kind==="删除或并入"?"old":r.kind==="有修改"?"chg":""}">${r.kind}</span><b>${n?"2021 版 "+n.label:""}</b>${o?`<span class="note">← 2017 版 ${o.label}${r.edit!=null?" · 文字相似度 "+Math.round(r.edit*100)+"%":""}</span>`:""}</div>`;
+      const body=r.diff?`<div class="diff">${diffHtml(r.diff)}</div>`:`<div class="art">${esc(norm((n||o).text))}</div>`;
+      return `<div class="cmprow">${head}${body}</div>`}).join("")};
+  ["#c-kind","#c-chap"].forEach(s=>$(s).onchange=render);$("#c-q").oninput=render;render();
+}
+function evalView(){
+  const names={dev:"开发集",holdout:"留出集",holdout2:"第二留出集"},pn={"baseline":"纯检索（不分版本）","+version":"+ 版本过滤、条号直达","+gate":"+ 可答性门槛","full":"+ 口语改写（完整版）"};
+  let h=`<tr><th>题集</th><th>管线</th><th>题数</th><th>答对率</th><th>答成旧版</th><th>无答案题拒答</th><th>Top-3 命中</th></tr>`;
+  for(const [k,v] of Object.entries(E))for(const [p,x] of Object.entries(v)){const m=x.metrics;h+=`<tr class="${p==="full"?"full":""}"><td>${names[k]}</td><td>${pn[p]}</td><td class="n">${x.rows.length}</td><td class="n">${Math.round(m.acc*100)}%</td><td class="n">${m.stale}/${m.trap_n}</td><td class="n">${m.refuse==null?"—":Math.round(m.refuse*100)+"%"}</td><td class="n">${Math.round(m.top3*100)}%</td></tr>`}
+  $("#t-eval").innerHTML=h;
+  const miss=[];for(const [k,v] of Object.entries(E))for(const x of v.full.rows)if(!x.ok)miss.push([names[k],x]);
+  $("#t-miss").innerHTML=`<tr><th>题集</th><th>问题</th><th>系统引用</th><th>原因</th></tr>`+miss.map(([k,x])=>`<tr><td>${k}</td><td><button class="chip" data-q="${esc(x.q)}">${esc(x.q)}</button></td><td>${(x.cites||[]).map(i=>esc(BY[i]?citeLine(BY[i]):i)).join("")}</td><td class="note">${reason(x)}</td></tr>`).join("");
+}
+function reason(x){if(/严重伤害|群体医疗器械不良事件/.test(x.q))return"定义类问题：命中了使用该词的条款，而不是「用语含义」条款";if(/停产/.test(x.q))return"「暂停生产」出现在多条，排第一的是监管部门的控制措施条款";if(/开一家/.test(x.q))return"「三类」「许可证」同时命中生产许可条款，经营 / 生产没区分开";if(/医院/.test(x.q))return"「医院」对应法规里的「使用单位」，改写表里没有这一项";return"见题目"}
+function docsView(){const ks=["reg2017","reg2021","ae2018"];$("#t-docs").innerHTML=`<tr><th>文件</th><th>版本</th><th>文号</th><th>施行</th><th>效力</th><th>条数</th><th>来源</th></tr>`+ks.map(k=>{const a=A.find(x=>x.key===k);return `<tr><td>${esc(a.doc)}</td><td>${esc(a.version)}</td><td>${esc(a.order)}</td><td>${a.effective}</td><td>${badge(a)}</td><td class="n">${A.filter(x=>x.key===k).length}</td><td><a href="${a.url}" target="_blank" rel="noopener">中国政府网</a></td></tr>`}).join("")}
+function route(){const v=(location.hash||"#ask").slice(1);const ok=["ask","compare","eval","about"].includes(v)?v:"ask";document.querySelectorAll("section.view").forEach(s=>s.hidden=s.id!=="v-"+ok);document.querySelectorAll("nav a").forEach(a=>{if(a.getAttribute("href")==="#"+ok)a.setAttribute("aria-current","page");else a.removeAttribute("aria-current")})}
+addEventListener("hashchange",route);
+(async()=>{route();
+  try{const [d,e]=await Promise.all([fetch("data.json").then(r=>r.json()),fetch("eval.json").then(r=>r.json())]);A=d.articles;AL=d.alignment;E=e}catch(err){$("#answer").innerHTML='<p class="note">数据载入失败，请刷新页面。</p>';return}
+  for(const a of A)BY[a.id]=a;for(const r of AL.rows){if(r.new)N2O[r.new]=r;if(r.old)O2N[r.old]=r}
+  buildIndex();
+  $("#chips").innerHTML=EXAMPLES.map(([q,t])=>`<button class="chip" data-q="${esc(q)}">${esc(q)} <small>${t}</small></button>`).join("");
+  document.addEventListener("click",e=>{const c=e.target.closest("[data-q]");if(c){location.hash="#ask";show(c.dataset.q)}});
+  $("#f").onsubmit=e=>{e.preventDefault();show($("#q").value)};
+  compareView();evalView();docsView();show(EXAMPLES[0][0]);
+})();
+</script>
