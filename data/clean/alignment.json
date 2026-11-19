@@ -1,0 +1,787 @@
+{
+"rows": [
+{
+"new": "reg2021-001",
+"old": "reg2017-001",
+"sim": 0.86,
+"edit": 0.857,
+"kind": "有修改"
+},
+{
+"new": "reg2021-002",
+"old": "reg2017-002",
+"sim": 0.809,
+"edit": 0.932,
+"kind": "基本未变"
+},
+{
+"new": "reg2021-003",
+"old": "reg2017-003",
+"sim": 0.796,
+"edit": 0.482,
+"kind": "有修改"
+},
+{
+"new": "reg2021-004",
+"old": null,
+"sim": null,
+"edit": null,
+"kind": "新增"
+},
+{
+"new": "reg2021-005",
+"old": null,
+"sim": null,
+"edit": null,
+"kind": "新增"
+},
+{
+"new": "reg2021-006",
+"old": "reg2017-004",
+"sim": 0.946,
+"edit": 0.962,
+"kind": "基本未变"
+},
+{
+"new": "reg2021-007",
+"old": null,
+"sim": null,
+"edit": null,
+"kind": "新增"
+},
+{
+"new": "reg2021-008",
+"old": null,
+"sim": null,
+"edit": null,
+"kind": "新增"
+},
+{
+"new": "reg2021-009",
+"old": null,
+"sim": null,
+"edit": null,
+"kind": "新增"
+},
+{
+"new": "reg2021-010",
+"old": null,
+"sim": null,
+"edit": null,
+"kind": "新增"
+},
+{
+"new": "reg2021-011",
+"old": "reg2017-007",
+"sim": 1.0,
+"edit": 1.0,
+"kind": "基本未变"
+},
+{
+"new": "reg2021-012",
+"old": null,
+"sim": null,
+"edit": null,
+"kind": "新增"
+},
+{
+"new": "reg2021-013",
+"old": "reg2017-008",
+"sim": 0.59,
+"edit": 0.526,
+"kind": "有修改"
+},
+{
+"new": "reg2021-014",
+"old": "reg2017-009",
+"sim": 0.716,
+"edit": 0.699,
+"kind": "有修改"
+},
+{
+"new": "reg2021-015",
+"old": "reg2017-010",
+"sim": 0.619,
+"edit": 0.514,
+"kind": "有修改"
+},
+{
+"new": "reg2021-016",
+"old": "reg2017-011",
+"sim": 0.688,
+"edit": 0.604,
+"kind": "有修改"
+},
+{
+"new": "reg2021-017",
+"old": "reg2017-012",
+"sim": 0.626,
+"edit": 0.417,
+"kind": "有修改"
+},
+{
+"new": "reg2021-018",
+"old": "reg2017-013",
+"sim": 0.505,
+"edit": 0.586,
+"kind": "有修改"
+},
+{
+"new": "reg2021-019",
+"old": null,
+"sim": null,
+"edit": null,
+"kind": "新增"
+},
+{
+"new": "reg2021-020",
+"old": null,
+"sim": null,
+"edit": null,
+"kind": "新增"
+},
+{
+"new": "reg2021-021",
+"old": "reg2017-014",
+"sim": 0.805,
+"edit": 0.811,
+"kind": "有修改"
+},
+{
+"new": "reg2021-022",
+"old": "reg2017-015",
+"sim": 0.928,
+"edit": 0.928,
+"kind": "基本未变"
+},
+{
+"new": "reg2021-023",
+"old": "reg2017-016",
+"sim": 0.978,
+"edit": 0.983,
+"kind": "基本未变"
+},
+{
+"new": "reg2021-024",
+"old": "reg2017-017",
+"sim": 0.684,
+"edit": 0.665,
+"kind": "有修改"
+},
+{
+"new": "reg2021-025",
+"old": null,
+"sim": null,
+"edit": null,
+"kind": "新增"
+},
+{
+"new": "reg2021-026",
+"old": "reg2017-018",
+"sim": 0.864,
+"edit": 0.853,
+"kind": "有修改"
+},
+{
+"new": "reg2021-027",
+"old": "reg2017-019",
+"sim": 0.879,
+"edit": 0.699,
+"kind": "有修改"
+},
+{
+"new": "reg2021-028",
+"old": null,
+"sim": null,
+"edit": null,
+"kind": "新增"
+},
+{
+"new": "reg2021-029",
+"old": null,
+"sim": null,
+"edit": null,
+"kind": "新增"
+},
+{
+"new": "reg2021-030",
+"old": "reg2017-020",
+"sim": 0.961,
+"edit": 0.991,
+"kind": "基本未变"
+},
+{
+"new": "reg2021-031",
+"old": "reg2017-021",
+"sim": 0.397,
+"edit": 0.517,
+"kind": "有修改"
+},
+{
+"new": "reg2021-032",
+"old": "reg2017-022",
+"sim": 0.915,
+"edit": 0.785,
+"kind": "有修改"
+},
+{
+"new": "reg2021-033",
+"old": "reg2017-023",
+"sim": 0.936,
+"edit": 0.969,
+"kind": "基本未变"
+},
+{
+"new": "reg2021-034",
+"old": "reg2017-028",
+"sim": 0.611,
+"edit": 0.43,
+"kind": "有修改"
+},
+{
+"new": "reg2021-035",
+"old": "reg2017-024",
+"sim": 0.854,
+"edit": 0.863,
+"kind": "有修改"
+},
+{
+"new": "reg2021-036",
+"old": "reg2017-025",
+"sim": 0.796,
+"edit": 0.8,
+"kind": "有修改"
+},
+{
+"new": "reg2021-037",
+"old": "reg2017-026",
+"sim": 0.987,
+"edit": 0.978,
+"kind": "基本未变"
+},
+{
+"new": "reg2021-038",
+"old": null,
+"sim": null,
+"edit": null,
+"kind": "新增"
+},
+{
+"new": "reg2021-039",
+"old": "reg2017-027",
+"sim": 0.876,
+"edit": 0.869,
+"kind": "有修改"
+},
+{
+"new": "reg2021-040",
+"old": "reg2017-029",
+"sim": 1.0,
+"edit": 1.0,
+"kind": "基本未变"
+},
+{
+"new": "reg2021-041",
+"old": "reg2017-030",
+"sim": 0.477,
+"edit": 0.46,
+"kind": "有修改"
+},
+{
+"new": "reg2021-042",
+"old": "reg2017-031",
+"sim": 0.87,
+"edit": 0.872,
+"kind": "有修改"
+},
+{
+"new": "reg2021-043",
+"old": null,
+"sim": null,
+"edit": null,
+"kind": "新增"
+},
+{
+"new": "reg2021-044",
+"old": null,
+"sim": null,
+"edit": null,
+"kind": "新增"
+},
+{
+"new": "reg2021-045",
+"old": "reg2017-032",
+"sim": 0.892,
+"edit": 0.88,
+"kind": "有修改"
+},
+{
+"new": "reg2021-046",
+"old": null,
+"sim": null,
+"edit": null,
+"kind": "新增"
+},
+{
+"new": "reg2021-047",
+"old": "reg2017-033",
+"sim": 1.0,
+"edit": 1.0,
+"kind": "基本未变"
+},
+{
+"new": "reg2021-048",
+"old": "reg2017-034",
+"sim": 0.974,
+"edit": 0.986,
+"kind": "基本未变"
+},
+{
+"new": "reg2021-049",
+"old": "reg2017-006",
+"sim": 0.719,
+"edit": 0.555,
+"kind": "有修改"
+},
+{
+"new": "reg2021-050",
+"old": "reg2017-036",
+"sim": 1.0,
+"edit": 1.0,
+"kind": "基本未变"
+},
+{
+"new": "reg2021-051",
+"old": "reg2017-037",
+"sim": 1.0,
+"edit": 1.0,
+"kind": "基本未变"
+},
+{
+"new": "reg2021-052",
+"old": "reg2017-038",
+"sim": 0.923,
+"edit": 0.916,
+"kind": "有修改"
+},
+{
+"new": "reg2021-053",
+"old": null,
+"sim": null,
+"edit": null,
+"kind": "新增"
+},
+{
+"new": "reg2021-054",
+"old": "reg2017-039",
+"sim": 0.96,
+"edit": 0.937,
+"kind": "基本未变"
+},
+{
+"new": "reg2021-055",
+"old": "reg2017-040",
+"sim": 0.943,
+"edit": 0.961,
+"kind": "基本未变"
+},
+{
+"new": "reg2021-056",
+"old": "reg2017-041",
+"sim": 1.0,
+"edit": 1.0,
+"kind": "基本未变"
+},
+{
+"new": "reg2021-057",
+"old": "reg2017-042",
+"sim": 0.793,
+"edit": 0.677,
+"kind": "有修改"
+},
+{
+"new": "reg2021-058",
+"old": "reg2017-043",
+"sim": 0.99,
+"edit": 0.975,
+"kind": "基本未变"
+},
+{
+"new": "reg2021-059",
+"old": "reg2017-044",
+"sim": 1.0,
+"edit": 1.0,
+"kind": "基本未变"
+},
+{
+"new": "reg2021-060",
+"old": "reg2017-045",
+"sim": 0.664,
+"edit": 0.517,
+"kind": "有修改"
+},
+{
+"new": "reg2021-061",
+"old": "reg2017-046",
+"sim": 1.0,
+"edit": 1.0,
+"kind": "基本未变"
+},
+{
+"new": "reg2021-062",
+"old": "reg2017-047",
+"sim": 0.837,
+"edit": 0.679,
+"kind": "有修改"
+},
+{
+"new": "reg2021-063",
+"old": "reg2017-048",
+"sim": 0.925,
+"edit": 0.909,
+"kind": "有修改"
+},
+{
+"new": "reg2021-064",
+"old": "reg2017-049",
+"sim": 0.868,
+"edit": 0.82,
+"kind": "有修改"
+},
+{
+"new": "reg2021-065",
+"old": "reg2017-050",
+"sim": 0.817,
+"edit": 0.855,
+"kind": "有修改"
+},
+{
+"new": "reg2021-066",
+"old": "reg2017-051",
+"sim": 0.524,
+"edit": 0.499,
+"kind": "有修改"
+},
+{
+"new": "reg2021-067",
+"old": "reg2017-052",
+"sim": 0.785,
+"edit": 0.831,
+"kind": "有修改"
+},
+{
+"new": "reg2021-068",
+"old": null,
+"sim": null,
+"edit": null,
+"kind": "新增"
+},
+{
+"new": "reg2021-069",
+"old": "reg2017-053",
+"sim": 0.638,
+"edit": 0.655,
+"kind": "有修改"
+},
+{
+"new": "reg2021-070",
+"old": "reg2017-054",
+"sim": 0.898,
+"edit": 0.897,
+"kind": "有修改"
+},
+{
+"new": "reg2021-071",
+"old": null,
+"sim": null,
+"edit": null,
+"kind": "新增"
+},
+{
+"new": "reg2021-072",
+"old": "reg2017-055",
+"sim": 0.589,
+"edit": 0.592,
+"kind": "有修改"
+},
+{
+"new": "reg2021-073",
+"old": "reg2017-056",
+"sim": 0.98,
+"edit": 0.531,
+"kind": "有修改"
+},
+{
+"new": "reg2021-074",
+"old": null,
+"sim": null,
+"edit": null,
+"kind": "新增"
+},
+{
+"new": "reg2021-075",
+"old": "reg2017-057",
+"sim": 0.757,
+"edit": 0.725,
+"kind": "有修改"
+},
+{
+"new": "reg2021-076",
+"old": "reg2017-058",
+"sim": 0.953,
+"edit": 0.861,
+"kind": "有修改"
+},
+{
+"new": "reg2021-077",
+"old": "reg2017-059",
+"sim": 0.531,
+"edit": 0.38,
+"kind": "有修改"
+},
+{
+"new": "reg2021-078",
+"old": "reg2017-060",
+"sim": 0.688,
+"edit": 0.75,
+"kind": "有修改"
+},
+{
+"new": "reg2021-079",
+"old": "reg2017-061",
+"sim": 0.904,
+"edit": 0.91,
+"kind": "有修改"
+},
+{
+"new": "reg2021-080",
+"old": "reg2017-062",
+"sim": 0.9,
+"edit": 0.923,
+"kind": "基本未变"
+},
+{
+"new": "reg2021-081",
+"old": "reg2017-063",
+"sim": 0.758,
+"edit": 0.671,
+"kind": "有修改"
+},
+{
+"new": "reg2021-082",
+"old": null,
+"sim": null,
+"edit": null,
+"kind": "新增"
+},
+{
+"new": "reg2021-083",
+"old": "reg2017-064",
+"sim": 0.669,
+"edit": 0.487,
+"kind": "有修改"
+},
+{
+"new": "reg2021-084",
+"old": null,
+"sim": null,
+"edit": null,
+"kind": "新增"
+},
+{
+"new": "reg2021-085",
+"old": "reg2017-065",
+"sim": 0.358,
+"edit": 0.33,
+"kind": "有修改"
+},
+{
+"new": "reg2021-086",
+"old": "reg2017-066",
+"sim": 0.663,
+"edit": 0.675,
+"kind": "有修改"
+},
+{
+"new": "reg2021-087",
+"old": null,
+"sim": null,
+"edit": null,
+"kind": "新增"
+},
+{
+"new": "reg2021-088",
+"old": "reg2017-067",
+"sim": 0.761,
+"edit": 0.756,
+"kind": "有修改"
+},
+{
+"new": "reg2021-089",
+"old": "reg2017-068",
+"sim": 0.676,
+"edit": 0.457,
+"kind": "有修改"
+},
+{
+"new": "reg2021-090",
+"old": null,
+"sim": null,
+"edit": null,
+"kind": "新增"
+},
+{
+"new": "reg2021-091",
+"old": null,
+"sim": null,
+"edit": null,
+"kind": "新增"
+},
+{
+"new": "reg2021-092",
+"old": null,
+"sim": null,
+"edit": null,
+"kind": "新增"
+},
+{
+"new": "reg2021-093",
+"old": null,
+"sim": null,
+"edit": null,
+"kind": "新增"
+},
+{
+"new": "reg2021-094",
+"old": "reg2017-069",
+"sim": 0.544,
+"edit": 0.46,
+"kind": "有修改"
+},
+{
+"new": "reg2021-095",
+"old": null,
+"sim": null,
+"edit": null,
+"kind": "新增"
+},
+{
+"new": "reg2021-096",
+"old": "reg2017-070",
+"sim": 0.701,
+"edit": 0.715,
+"kind": "有修改"
+},
+{
+"new": "reg2021-097",
+"old": null,
+"sim": null,
+"edit": null,
+"kind": "新增"
+},
+{
+"new": "reg2021-098",
+"old": null,
+"sim": null,
+"edit": null,
+"kind": "新增"
+},
+{
+"new": "reg2021-099",
+"old": null,
+"sim": null,
+"edit": null,
+"kind": "新增"
+},
+{
+"new": "reg2021-100",
+"old": "reg2017-072",
+"sim": 0.832,
+"edit": 0.842,
+"kind": "有修改"
+},
+{
+"new": "reg2021-101",
+"old": "reg2017-074",
+"sim": 0.461,
+"edit": 0.411,
+"kind": "有修改"
+},
+{
+"new": "reg2021-102",
+"old": "reg2017-075",
+"sim": 1.0,
+"edit": 1.0,
+"kind": "基本未变"
+},
+{
+"new": "reg2021-103",
+"old": "reg2017-076",
+"sim": 0.9,
+"edit": 0.882,
+"kind": "有修改"
+},
+{
+"new": "reg2021-104",
+"old": "reg2017-077",
+"sim": 1.0,
+"edit": 1.0,
+"kind": "基本未变"
+},
+{
+"new": "reg2021-105",
+"old": "reg2017-078",
+"sim": 0.637,
+"edit": 0.55,
+"kind": "有修改"
+},
+{
+"new": "reg2021-106",
+"old": "reg2017-079",
+"sim": 0.684,
+"edit": 0.754,
+"kind": "有修改"
+},
+{
+"new": "reg2021-107",
+"old": "reg2017-080",
+"sim": 0.71,
+"edit": 0.941,
+"kind": "基本未变"
+},
+{
+"new": null,
+"old": "reg2017-005",
+"sim": null,
+"edit": null,
+"kind": "删除或并入"
+},
+{
+"new": null,
+"old": "reg2017-035",
+"sim": null,
+"edit": null,
+"kind": "删除或并入"
+},
+{
+"new": null,
+"old": "reg2017-071",
+"sim": null,
+"edit": null,
+"kind": "删除或并入"
+},
+{
+"new": null,
+"old": "reg2017-073",
+"sim": null,
+"edit": null,
+"kind": "删除或并入"
+}
+],
+"summary": {
+"有修改": 53,
+"基本未变": 23,
+"新增": 31,
+"删除或并入": 4
+}
+}
